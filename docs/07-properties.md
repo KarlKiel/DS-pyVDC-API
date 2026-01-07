@@ -228,12 +228,12 @@ vdSD (device)
 │  ├─ effect
 │  ├─ dontCare
 │  ├─ ignoreLocalPriority
-│  └─ channels{channelTypeId}
+│  └─ channels[channelTypeId]
 │     ├─ value
 │     ├─ dontCare
 │     └─ automatic
 └─ controlValues
-   └─ {controlValueName}
+   └─ [controlValueName]
 ```
 
 ## 1. Common Properties for vDC-Level Entities
@@ -469,6 +469,7 @@ This section provides an overview of all device-specific properties for virtual 
 | `channelDescriptions` | array | r | Channel descriptions (invariable) |
 | `channelSettings` | array | r/w | Channel settings (persistent) |
 | `channelStates` | array | r | Current channel states |
+| `scenes` | array | r/w | Scene configurations |
 | `deviceActionDescriptions` | array | r | Available action templates |
 | `standardActions` | array | r | Predefined standard actions |
 | `customActions` | array | r/w | User-configured custom actions |
@@ -754,7 +755,7 @@ Templates for creating custom actions. Located in `deviceActionDescriptions[i]`:
 | `params` | array | r | Parameter objects describing action parameters |
 | `description` | string | r (opt) | Human-readable action description |
 
-#### 8aa. Parameter Objects
+#### Parameter Objects
 
 | Property | Type | Description |
 |----------|------|-------------|
@@ -776,9 +777,9 @@ Predefined immutable actions. Located in `standardActions[i]`:
 | `action` | string | r | Template action name this is based on |
 | `params` | object | r (opt) | Parameter name-value pairs differing from template |
 
-#### 8ba. Parameter Objects
+#### Parameter Objects
 
-Parameter objects for standard actions follow the same structure as in section 8aa.
+Parameter objects for standard actions follow the same structure as in section 8a.
 
 ### 8c. Custom Actions
 
@@ -791,9 +792,9 @@ User-configured actions. Located in `customActions[i]`:
 | `title` | string | r/w | Human-readable action name (usually user-provided) |
 | `params` | object | r/w (opt) | Parameter name-value pairs differing from template |
 
-#### 8ca. Parameter Objects
+#### Parameter Objects
 
-Parameter objects for custom actions follow the same structure as in section 8aa.
+Parameter objects for custom actions follow the same structure as in section 8a.
 
 ### 8d. Dynamic Device Actions
 
