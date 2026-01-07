@@ -1,6 +1,6 @@
 # Properties System
 
-The vDC API uses a hierarchical, named property system to describe device capabilities, configuration, and state.
+The vDC API uses a hierarchical, named property system to describe device capabilities, configuration, and state. This document follows the structure of the overall vDC property tree, organizing properties by entity level and functional category.
 
 ## Property Basics
 
@@ -41,9 +41,204 @@ Each property has access control:
 | Read-write | `r/w` | Can be read and written |
 | Write-only | `w` | Can only be written (rare) |
 
-## Common Properties
+### Full Property Tree Visualization
 
-These properties are supported by all addressable entities (devices, vDCs, vDC hosts):
+The following diagram shows the complete property tree structure with all possible property items:
+
+```
+vDC (root)
+├─ dSUID
+├─ type
+├─ displayId
+├─ name
+├─ model
+├─ modelUID
+├─ modelVersion
+├─ deviceClass
+├─ deviceClassVersion
+├─ hardwareGuid
+├─ hardwareModelGuid
+├─ hardwareVersion
+├─ vendorName
+├─ vendorGuid
+├─ oemGuid
+├─ oemModelGuid
+├─ configURL
+├─ deviceIcon16
+├─ deviceIconName
+├─ active
+├─ implementationId
+└─ x-p44-vdcs
+
+vdSD (device)
+├─ dSUID
+├─ type
+├─ displayId
+├─ name
+├─ model
+├─ modelUID
+├─ modelVersion
+├─ deviceClass
+├─ deviceClassVersion
+├─ hardwareGuid
+├─ hardwareModelGuid
+├─ hardwareVersion
+├─ vendorName
+├─ vendorGuid
+├─ oemGuid
+├─ oemModelGuid
+├─ configURL
+├─ deviceIcon16
+├─ deviceIconName
+├─ active
+├─ buttonInputDescriptions[]
+│  ├─ buttonID
+│  ├─ buttonType
+│  ├─ supportsLocalKeyMode
+│  ├─ buttonElementID
+│  └─ buttonFunc
+├─ buttonInputSettings[]
+│  ├─ group
+│  ├─ mode
+│  ├─ channel
+│  ├─ setsLocalPriority
+│  ├─ callsPresent
+│  ├─ buttonActionMode
+│  └─ buttonActionId
+├─ buttonInputStates[]
+│  ├─ value
+│  ├─ age
+│  ├─ localPriority
+│  └─ callScene
+├─ binaryInputDescriptions[]
+│  ├─ inputType
+│  ├─ inputUsage
+│  └─ hardwareName
+├─ binaryInputSettings[]
+│  ├─ group
+│  ├─ minPushInterval
+│  ├─ changesOnlyInterval
+│  └─ aliveSignInterval
+├─ binaryInputStates[]
+│  ├─ value
+│  ├─ age
+│  └─ error
+├─ sensorDescriptions[]
+│  ├─ sensorType
+│  ├─ sensorUsage
+│  ├─ min
+│  ├─ max
+│  ├─ resolution
+│  ├─ updateInterval
+│  └─ aliveSignInterval
+├─ sensorSettings[]
+│  ├─ group
+│  ├─ minPushInterval
+│  └─ changesOnlyInterval
+├─ sensorStates[]
+│  ├─ value
+│  ├─ age
+│  ├─ contextId
+│  ├─ contextMsg
+│  └─ error
+├─ outputDescription
+│  ├─ defaultGroup
+│  ├─ name
+│  ├─ function
+│  ├─ outputUsage
+│  ├─ variableRamp
+│  ├─ maxPower
+│  └─ activeCoolingMode
+├─ outputSettings
+│  ├─ activeGroup
+│  ├─ groups
+│  ├─ mode
+│  ├─ pushChanges
+│  ├─ onThreshold
+│  ├─ minBrightness
+│  ├─ dimTimeUp
+│  ├─ dimTimeDown
+│  ├─ dimTimeUpAlt1
+│  ├─ dimTimeDownAlt1
+│  ├─ dimTimeUpAlt2
+│  ├─ dimTimeDownAlt2
+│  ├─ heatingSystemCapability
+│  └─ heatingSystemType
+├─ outputState
+│  ├─ localPriority
+│  └─ error
+├─ channelDescriptions[]
+│  ├─ name
+│  ├─ channelType
+│  ├─ dsIndex
+│  ├─ min
+│  ├─ max
+│  └─ resolution
+├─ channelSettings[]
+│  └─ (no properties currently defined)
+├─ channelStates[]
+│  ├─ value
+│  └─ age
+├─ deviceActionDescriptions[]
+│  ├─ name
+│  ├─ description
+│  └─ params[]
+│     ├─ type
+│     ├─ min
+│     ├─ max
+│     ├─ resolution
+│     ├─ siunit
+│     ├─ options
+│     └─ default
+├─ standardActions[]
+│  ├─ name
+│  ├─ action
+│  └─ params{}
+├─ customActions[]
+│  ├─ name
+│  ├─ action
+│  ├─ title
+│  └─ params{}
+├─ dynamicDeviceActions[]
+│  ├─ name
+│  └─ title
+├─ deviceStateDescriptions[]
+│  ├─ name
+│  ├─ options
+│  └─ description
+├─ deviceStates[]
+│  ├─ name
+│  └─ value
+├─ devicePropertyDescriptions[]
+│  ├─ name
+│  ├─ type
+│  ├─ min
+│  ├─ max
+│  ├─ resolution
+│  ├─ siunit
+│  ├─ options
+│  └─ default
+├─ deviceProperties[]
+│  ├─ name
+│  └─ value
+├─ deviceEventDescriptions[]
+│  ├─ name
+│  └─ description
+├─ scenes[]
+│  ├─ effect
+│  ├─ dontCare
+│  ├─ ignoreLocalPriority
+│  └─ channels{channelTypeId}
+│     ├─ value
+│     ├─ dontCare
+│     └─ automatic
+└─ controlValues
+   └─ {controlValueName}
+```
+
+## 1. Common Properties for vDC Entities
+
+These properties are supported by all addressable entities at the vDC level (vDCs, vDC hosts):
 
 ### Identification Properties
 
@@ -53,6 +248,119 @@ These properties are supported by all addressable entities (devices, vDCs, vDC h
 | `type` | string | r | Entity type: "vdSD", "vDC", "vDChost", "vdSM" |
 | `displayId` | string | r | Human-readable ID printed on physical device |
 | `name` | string | r/w | User-assigned name of the entity |
+
+**Example:**
+```python
+{
+    "dSUID": "198C033E330755E78015F97AD093DD1C00",
+    "type": "vDC",
+    "displayId": "SN-12345",
+    "name": "My vDC"
+}
+```
+
+### Model Properties
+
+| Property | Type | Access | Description |
+|----------|------|--------|-------------|
+| `model` | string | r | Human-readable model name |
+| `modelUID` | string | r | System-unique ID for functional model |
+| `modelVersion` | string | r (opt) | Model version (firmware version) |
+| `deviceClass` | string | r (opt) | Device class profile name (e.g., "Light") |
+| `deviceClassVersion` | string | r (opt) | Device class profile version |
+
+**Example:**
+```python
+{
+    "model": "WiFi Smart Bulb Pro",
+    "modelUID": "com.example.smartbulb.wifi.v2",
+    "modelVersion": "2.1.5",
+    "deviceClass": "Light",
+    "deviceClassVersion": "1.0"
+}
+```
+
+### Hardware Properties
+
+| Property | Type | Access | Description |
+|----------|------|--------|-------------|
+| `hardwareGuid` | string | r (opt) | Hardware instance GUID in URN format |
+| `hardwareModelGuid` | string | r (opt) | Hardware model GUID in URN format |
+| `hardwareVersion` | string | r (opt) | Hardware version string |
+
+**GUID Formats:**
+- `gs1:(01)gtin(21)serial` - GS1 GTIN + serial number
+- `macaddress:AABBCCDDEEFF` - MAC Address
+- `enoceanaddress:01234567` - EnOcean device address (8 hex digits)
+- `uuid:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` - UUID
+- `gs1:(01)gtin` - GS1 GTIN (for model GUID)
+- `enoceaneep:RRFFTT` - EnOcean Equipment Profile
+
+**Example:**
+```python
+{
+    "hardwareGuid": "macaddress:001122334455",
+    "hardwareModelGuid": "gs1:(01)04050300870342",
+    "hardwareVersion": "1.2"
+}
+```
+
+### Vendor Properties
+
+| Property | Type | Access | Description |
+|----------|------|--------|-------------|
+| `vendorName` | string | r (opt) | Manufacturer/vendor name |
+| `vendorGuid` | string | r (opt) | Vendor GUID in URN format |
+| `oemGuid` | string | r (opt) | OEM product GUID |
+| `oemModelGuid` | string | r (opt) | OEM product model GUID (GTIN) |
+
+**Vendor GUID Formats:**
+- `enoceanvendor:XXX[:name]` - EnOcean vendor ID (3 hex digits) + optional name
+- `vendorname:CompanyName` - Clear text vendor name
+- `gs1:(412)gln` - GS1 Global Location Number
+
+### UI Properties
+
+| Property | Type | Access | Description |
+|----------|------|--------|-------------|
+| `configURL` | string | r (opt) | Full URL to device web configuration |
+| `deviceIcon16` | binary | r (opt) | 16x16 PNG icon for UI display |
+| `deviceIconName` | string | r (opt) | Filename-safe icon name for caching |
+
+### Status Properties
+
+| Property | Type | Access | Description |
+|----------|------|--------|-------------|
+| `active` | boolean | r (opt) | Device is operational (true) or has issues (false) |
+
+**Important:** When `active` changes, vDC should send push notification.
+
+## 2. vDC-Specific Properties
+
+vDC entities (Virtual Device Connectors) have additional properties beyond the common properties:
+
+| Property | Type | Access | Description |
+|----------|------|--------|-------------|
+| `implementationId` | string | r | Identifier for the vDC implementation |
+| `configURL` | string | r (opt) | Full URL to vDC web configuration interface |
+| `x-p44-vdcs` | object | r (opt) | Implementation-specific vDC collection properties |
+
+**Note:** vDC-level properties may vary by implementation. Consult your vDC host documentation for additional properties.
+
+## 3. Common Properties for vdSD Entities
+
+These properties are supported by all virtual digitalSTROM devices (vdSD):
+
+### Identification Properties
+
+Same as section 1, but with `type` = "vdSD":
+
+| Property | Type | Access | Description |
+|----------|------|--------|-------------|
+| `dSUID` | string | r | 34-character hex dSUID of the device |
+| `type` | string | r | Entity type: "vdSD" |
+| `displayId` | string | r | Human-readable ID printed on physical device |
+| `name` | string | r/w | User-assigned name of the device |
 
 **Example:**
 ```python
@@ -140,9 +448,9 @@ These properties are supported by all addressable entities (devices, vDCs, vDC h
 
 **Important:** When `active` changes, vDC should send push notification.
 
-## Device-Specific Properties
+## 4. General Device-Specific Properties
 
-This section provides comprehensive device-specific property specifications for virtual digitalSTROM devices (vdSD). These properties extend the common properties and define device capabilities, configuration, and state.
+This section provides an overview of all device-specific properties for virtual digitalSTROM devices (vdSD). These properties extend the common properties and define device capabilities, configuration, and state.
 
 ### Device-Level Properties Overview
 
@@ -163,7 +471,6 @@ This section provides comprehensive device-specific property specifications for 
 | `channelDescriptions` | array | r | Channel descriptions (invariable) |
 | `channelSettings` | array | r/w | Channel settings (persistent) |
 | `channelStates` | array | r | Current channel states |
-| `scenes` | array | r/w | Scene configurations |
 | `deviceActionDescriptions` | array | r | Available action templates |
 | `standardActions` | array | r | Predefined standard actions |
 | `customActions` | array | r/w | User-configured custom actions |
@@ -173,13 +480,16 @@ This section provides comprehensive device-specific property specifications for 
 | `devicePropertyDescriptions` | array | r | Custom property descriptions |
 | `deviceProperties` | array | r/w | Custom property values |
 | `deviceEventDescriptions` | array | r | Device event descriptions |
+| `scenes` | array | r/w | Scene configurations |
 | `controlValues` | object | r/w | Named control values |
 
-### Button Input Properties
+## 5. Inputs
+
+### 5a. Buttons
 
 Button inputs represent physical buttons or switches on devices.
 
-#### Button Input Description
+#### 5aa. Button Input Descriptions
 
 Invariable properties describing button capabilities. Located in `buttonInputDescriptions[i]`:
 
@@ -191,7 +501,7 @@ Invariable properties describing button capabilities. Located in `buttonInputDes
 | `buttonElementID` | integer | r | Element ID within button (0..N-1) |
 | `buttonFunc` | integer | r | Function: 0=inactive/room off, 1=area 1 on, 2=area 2 on, 3=area 3 on, 4=area 4 on, 5=reserved, 6=area 1 preset 0, 7=area 1 preset 1, etc. |
 
-#### Button Input Settings
+#### 5ab. Button Input Settings
 
 Persistent configuration for buttons. Located in `buttonInputSettings[i]`:
 
@@ -205,7 +515,7 @@ Persistent configuration for buttons. Located in `buttonInputSettings[i]`:
 | `buttonActionMode` | integer | r/w | Action mode: 0=no action, 1=standard, 2=pulse |
 | `buttonActionId` | string | r/w | ID of action to execute on button press |
 
-#### Button Input State
+#### 5ac. Button Input States
 
 Current button state. Located in `buttonInputStates[i]`:
 
@@ -216,11 +526,11 @@ Current button state. Located in `buttonInputStates[i]`:
 | `localPriority` | boolean | r | Whether local priority is active |
 | `callScene` | integer | r | Last scene number called by button |
 
-### Binary Input Properties
+### 5b. Binary Inputs
 
 Binary inputs represent simple on/off inputs like door contacts or motion sensors.
 
-#### Binary Input Description
+#### 5ba. Binary Input Descriptions
 
 Invariable properties. Located in `binaryInputDescriptions[i]`:
 
@@ -230,7 +540,7 @@ Invariable properties. Located in `binaryInputDescriptions[i]`:
 | `inputUsage` | integer | r | Usage: 0=undefined, 1=room, 2=outdoor, 3=user interaction |
 | `hardwareName` | string | r | Hardware connector name/label |
 
-#### Binary Input Settings
+#### 5bb. Binary Input Settings
 
 Persistent configuration. Located in `binaryInputSettings[i]`:
 
@@ -241,7 +551,7 @@ Persistent configuration. Located in `binaryInputSettings[i]`:
 | `changesOnlyInterval` | double | r/w | Minimum interval for identical value pushes (default=0) |
 | `aliveSignInterval` | double | r/w | Maximum interval between updates before considered offline |
 
-#### Binary Input State
+#### 5bc. Binary Input States
 
 Current state. Located in `binaryInputStates[i]`:
 
@@ -251,11 +561,11 @@ Current state. Located in `binaryInputStates[i]`:
 | `age` | double or NULL | r | Age of state in seconds |
 | `error` | integer | r | Error code: 0=ok, 1=open circuit, 2=short circuit, 4=bus problem, 5=low battery, 6=other error |
 
-### Sensor Properties
+### 5c. Sensors
 
 Sensors provide analog measurements like temperature, humidity, etc.
 
-#### Sensor Description
+#### 5ca. Sensor Descriptions
 
 Invariable sensor properties. Located in `sensorDescriptions[i]`:
 
@@ -303,7 +613,7 @@ Invariable sensor properties. Located in `sensorDescriptions[i]`:
 | 27 | Water quantity | L |
 | 28 | Water flow rate | L/s |
 
-#### Sensor Settings
+#### 5cb. Sensor Settings
 
 Persistent configuration. Located in `sensorSettings[i]`:
 
@@ -313,7 +623,7 @@ Persistent configuration. Located in `sensorSettings[i]`:
 | `minPushInterval` | double | r/w | Minimum interval between pushes (seconds, default=2) |
 | `changesOnlyInterval` | double | r/w | Minimum interval for same-value pushes (default=0) |
 
-#### Sensor State
+#### 5cc. Sensor States
 
 Current readings. Located in `sensorStates[i]`:
 
@@ -325,11 +635,11 @@ Current readings. Located in `sensorStates[i]`:
 | `contextMsg` | string or NULL | r | Text context message (optional) |
 | `error` | integer | r | Error code: 0=ok, 1=open circuit, 2=short circuit, 4=bus problem, 5=low battery, 6=other error |
 
-### Output Properties
+## 6. Outputs
 
 Output properties describe device output capabilities (lights, blinds, valves, etc.). Devices without output functionality return NULL for these properties.
 
-#### Output Description
+### 6a. Output Descriptions
 
 Invariable output properties. Located in `outputDescription`:
 
@@ -355,7 +665,7 @@ Invariable output properties. Located in `outputDescription`:
 | 5 | Bipolar (heating/cooling) | Negative and positive values |
 | 6 | Internally controlled | Device has integrated control algorithm |
 
-#### Output Settings
+### 6b. Output Settings
 
 Persistent output configuration. Located in `outputSettings`:
 
@@ -378,7 +688,7 @@ Persistent output configuration. Located in `outputSettings`:
 
 **Note:** Dim time format: `4 MSB = exp, 4 LSB = lin, time = 100ms/32 × 2^exp × (17 + lin)`
 
-#### Output State
+### 6c. Output States
 
 Current output state. Located in `outputState`:
 
@@ -387,11 +697,11 @@ Current output state. Located in `outputState`:
 | `localPriority` | boolean | r/w | Whether local priority is enabled (device ignores scene calls unless forced) |
 | `error` | integer | r | Error code: 0=ok, 1=open circuit/lamp broken, 2=short circuit, 3=overload, 4=bus problem, 5=low battery, 6=other error |
 
-### Channel Properties
+## 7. Channels
 
 Channels represent individual controllable aspects of outputs (brightness, hue, saturation, position, etc.).
 
-#### Channel Description
+### 7a. Channel Descriptions
 
 Invariable channel properties. Located in `channelDescriptions[i]`:
 
@@ -413,7 +723,7 @@ Invariable channel properties. Located in `channelDescriptions[i]`:
 - 5: CIE X coordinate
 - 6: CIE Y coordinate
 
-#### Channel Settings
+### 7b. Channel Settings
 
 Currently no per-channel settings are defined. Located in `channelSettings[i]`:
 
@@ -421,7 +731,7 @@ Currently no per-channel settings are defined. Located in `channelSettings[i]`:
 |----------|------|--------|-------------|
 | - | - | - | No properties currently defined |
 
-#### Channel State
+### 7c. Channel States
 
 Current channel values. Located in `channelStates[i]`:
 
@@ -432,9 +742,141 @@ Current channel values. Located in `channelStates[i]`:
 | `value` | double | r | Current channel value (brightness, position, etc.) |
 | `age` | double | r | Age of value in seconds since last hardware update (NULL if value set but not yet applied) |
 
-### Scene Properties
+## 8. Actions
 
-Scenes store sets of values to apply to device outputs. Each scene contains values organized both by output number and by channel type. Located in `scenes[i]`:
+Actions describe device functionalities and operation processes.
+
+### 8a. Device Action Descriptions
+
+Templates for creating custom actions. Located in `deviceActionDescriptions[i]`:
+
+| Property | Type | Access | Description |
+|----------|------|--------|-------------|
+| `name` | string | r | Action template name |
+| `params` | array | r | Parameter objects describing action parameters |
+| `description` | string | r (opt) | Human-readable action description |
+
+#### 8aa. Parameter Objects
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `type` | string | Data type: "numeric", "enumeration", or "string" |
+| `min` | double | Minimum value (numeric only) |
+| `max` | double | Maximum value (numeric only) |
+| `resolution` | double | Value resolution (numeric only) |
+| `siunit` | string | SI unit string (e.g., "kW", "mA") |
+| `options` | object | Key-value pairs for enumeration choices |
+| `default` | varies | Default parameter value |
+
+### 8b. Standard Actions
+
+Predefined immutable actions. Located in `standardActions[i]`:
+
+| Property | Type | Access | Description |
+|----------|------|--------|-------------|
+| `name` | string | r | Unique action ID (always has "std." prefix) |
+| `action` | string | r | Template action name this is based on |
+| `params` | object | r (opt) | Parameter name-value pairs differing from template |
+
+#### 8ba. Parameter Objects
+
+Parameter objects for standard actions follow the same structure as in section 8aa.
+
+### 8c. Custom Actions
+
+User-configured actions. Located in `customActions[i]`:
+
+| Property | Type | Access | Description |
+|----------|------|--------|-------------|
+| `name` | string | r/w | Unique action ID (always has "custom." prefix) |
+| `action` | string | r/w | Template action name this is based on |
+| `title` | string | r/w | Human-readable action name (usually user-provided) |
+| `params` | object | r/w (opt) | Parameter name-value pairs differing from template |
+
+#### 8ca. Parameter Objects
+
+Parameter objects for custom actions follow the same structure as in section 8aa.
+
+### 8d. Dynamic Device Actions
+
+Device-created actions. Located in `dynamicDeviceActions[i]`:
+
+| Property | Type | Access | Description |
+|----------|------|--------|-------------|
+| `name` | string | r | Unique action ID (always has "dynamic." prefix) |
+| `title` | string | r | Human-readable action name |
+
+## 9. Device States
+
+Device states provide generic extensibility for device-specific data.
+
+### 9a. Device State Descriptions
+
+State type definitions. Located in `deviceStateDescriptions[i]`:
+
+| Property | Type | Access | Description |
+|----------|------|--------|-------------|
+| `name` | string | r | State name |
+| `options` | object | r | Option ID-value pairs (e.g., 0=Off, 1=Initializing, 2=Running, 3=Shutdown) |
+| `description` | string | r (opt) | State description |
+
+### 9b. Device State Values
+
+Current state values. Located in `deviceStates[i]`:
+
+| Property | Type | Access | Description |
+|----------|------|--------|-------------|
+| `name` | string | r | State name |
+| `value` | string | r | Current state option value |
+
+**Note:** State changes are signaled with push notifications containing the new state value.
+
+## 10. Device Properties
+
+Custom device properties provide generic extensibility for device-specific configuration.
+
+### 10a. Device Property Descriptions
+
+Custom property type definitions. Located in `devicePropertyDescriptions[i]`:
+
+| Property | Type | Access | Description |
+|----------|------|--------|-------------|
+| `name` | string | r | Property name |
+| `type` | string | r | Data type: "numeric", "enumeration", or "string" |
+| `min` | double | r (opt) | Minimum value (numeric only) |
+| `max` | double | r (opt) | Maximum value (numeric only) |
+| `resolution` | double | r (opt) | Resolution (numeric only) |
+| `siunit` | string | r (opt) | SI unit string |
+| `options` | object | r (opt) | Option ID-value pairs (enumeration only) |
+| `default` | varies | r (opt) | Default property value |
+
+### 10b. Device Property Values
+
+Custom property values. Located in `deviceProperties[i]`:
+
+| Property | Type | Access | Description |
+|----------|------|--------|-------------|
+| `name` | string | r | Property name |
+| `value` | string | r/w | Current property value |
+
+## 11. Device Events
+
+Stateless device events. Located in `deviceEventDescriptions[i]`:
+
+### 11a. Device Event Descriptions
+
+| Property | Type | Access | Description |
+|----------|------|--------|-------------|
+| `name` | string | r | Event name |
+| `description` | string | r (opt) | Event description |
+
+## 12. Scenes
+
+Scenes store sets of values to apply to device outputs. Each scene contains values organized both by output number and by channel type.
+
+### 12a. Scene Values
+
+Scene properties located in `scenes[i]`:
 
 | Property | Type | Access | Description |
 |----------|------|--------|-------------|
@@ -443,7 +885,7 @@ Scenes store sets of values to apply to device outputs. Each scene contains valu
 | `dontCare` | boolean | r/w | Global don't-care flag (if set, no channel values are applied) |
 | `ignoreLocalPriority` | boolean | r/w | Whether this scene overrides local priority |
 
-#### Scene Value
+#### Scene Channel Values
 
 Each scene channel value contains the following properties. Located in `scenes[i].channels[channelTypeId]`:
 
@@ -459,121 +901,7 @@ Each scene channel value contains the following properties. Located in `scenes[i
 - When effect finishes, channels with dontCare=true revert to pre-effect values
 - Channels with dontCare=false have scene values applied
 
-### Device Actions
-
-Actions describe device functionalities and operation processes.
-
-#### Device Action Descriptions
-
-Templates for creating custom actions. Located in `deviceActionDescriptions[i]`:
-
-| Property | Type | Access | Description |
-|----------|------|--------|-------------|
-| `name` | string | r | Action template name |
-| `params` | array | r | Parameter objects describing action parameters |
-| `description` | string | r (opt) | Human-readable action description |
-
-**Parameter Object Structure:**
-
-| Property | Type | Description |
-|----------|------|-------------|
-| `type` | string | Data type: "numeric", "enumeration", or "string" |
-| `min` | double | Minimum value (numeric only) |
-| `max` | double | Maximum value (numeric only) |
-| `resolution` | double | Value resolution (numeric only) |
-| `siunit` | string | SI unit string (e.g., "kW", "mA") |
-| `options` | object | Key-value pairs for enumeration choices |
-| `default` | varies | Default parameter value |
-
-#### Standard Actions
-
-Predefined immutable actions. Located in `standardActions[i]`:
-
-| Property | Type | Access | Description |
-|----------|------|--------|-------------|
-| `name` | string | r | Unique action ID (always has "std." prefix) |
-| `action` | string | r | Template action name this is based on |
-| `params` | object | r (opt) | Parameter name-value pairs differing from template |
-
-#### Custom Actions
-
-User-configured actions. Located in `customActions[i]`:
-
-| Property | Type | Access | Description |
-|----------|------|--------|-------------|
-| `name` | string | r/w | Unique action ID (always has "custom." prefix) |
-| `action` | string | r/w | Template action name this is based on |
-| `title` | string | r/w | Human-readable action name (usually user-provided) |
-| `params` | object | r/w (opt) | Parameter name-value pairs differing from template |
-
-#### Dynamic Device Actions
-
-Device-created actions. Located in `dynamicDeviceActions[i]`:
-
-| Property | Type | Access | Description |
-|----------|------|--------|-------------|
-| `name` | string | r | Unique action ID (always has "dynamic." prefix) |
-| `title` | string | r | Human-readable action name |
-
-### Device States and Properties
-
-Device states and properties provide generic extensibility for device-specific data.
-
-#### Device State Descriptions
-
-State type definitions. Located in `deviceStateDescriptions[i]`:
-
-| Property | Type | Access | Description |
-|----------|------|--------|-------------|
-| `name` | string | r | State name |
-| `options` | object | r | Option ID-value pairs (e.g., 0=Off, 1=Initializing, 2=Running, 3=Shutdown) |
-| `description` | string | r (opt) | State description |
-
-#### Device State Values
-
-Current state values. Located in `deviceStates[i]`:
-
-| Property | Type | Access | Description |
-|----------|------|--------|-------------|
-| `name` | string | r | State name |
-| `value` | string | r | Current state option value |
-
-**Note:** State changes are signaled with push notifications containing the new state value.
-
-#### Device Property Descriptions
-
-Custom property type definitions. Located in `devicePropertyDescriptions[i]`:
-
-| Property | Type | Access | Description |
-|----------|------|--------|-------------|
-| `name` | string | r | Property name |
-| `type` | string | r | Data type: "numeric", "enumeration", or "string" |
-| `min` | double | r (opt) | Minimum value (numeric only) |
-| `max` | double | r (opt) | Maximum value (numeric only) |
-| `resolution` | double | r (opt) | Resolution (numeric only) |
-| `siunit` | string | r (opt) | SI unit string |
-| `options` | object | r (opt) | Option ID-value pairs (enumeration only) |
-| `default` | varies | r (opt) | Default property value |
-
-#### Device Property Values
-
-Custom property values. Located in `deviceProperties[i]`:
-
-| Property | Type | Access | Description |
-|----------|------|--------|-------------|
-| `name` | string | r | Property name |
-| `value` | string | r/w | Current property value |
-
-### Device Events
-
-Stateless device events. Located in `deviceEventDescriptions[i]`:
-
-| Property | Type | Access | Description |
-|----------|------|--------|-------------|
-| `name` | string | r | Event name |
-| `description` | string | r (opt) | Event description |
-
-### Control Values
+## 13. Control Values
 
 Named control values for device operation. Located in `controlValues`:
 
