@@ -1,0 +1,7 @@
+include README.md
+include LICENSE
+include requirements.txt
+include requirements-dev.txt
+recursive-include src/ds_pyvdc_api *.py
+recursive-include tests *.py
+recursive-include docs *.rst *.md
