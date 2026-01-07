@@ -12,32 +12,18 @@ This is a complete rewrite of the digitalSTROM vDC API documentation, designed t
 
 ## Documentation Structure
 
-### Getting Started
-- [Introduction](01-introduction.md) - Overview of digitalSTROM and the vDC API
-- [Quick Start Guide](02-quickstart.md) - Get up and running quickly
-- [Core Concepts](03-core-concepts.md) - Understanding digitalSTROM basics
+The documentation is organized in a logical learning progression:
 
-### Architecture and Design
-- [System Architecture](04-architecture.md) - How digitalSTROM systems are structured
-- [vDC Overview](05-vdc-overview.md) - Virtual Device Connectors explained
-- [Communication Protocol](06-protocol.md) - How vDC and vdSM communicate
-
-### API Reference
-- [API Messages](07-api-messages.md) - Complete message reference
-- [Properties System](08-properties.md) - Named properties and how to use them
-- [Protocol Buffers](09-protobuf-reference.md) - Message format specification
-- [Error Handling](10-error-handling.md) - Error codes and recovery strategies
-
-### Implementation Guide
-- [Session Management](11-session-management.md) - Managing vDC connections
-- [Device Integration](12-device-integration.md) - Integrating devices into digitalSTROM
-- [Scene Handling](13-scenes.md) - Understanding and implementing scenes
-- [Discovery and Announcement](14-discovery.md) - Service discovery with Avahi
-
-### Reference
-- [Glossary](15-glossary.md) - Terms and definitions
-- [Examples](16-examples.md) - Practical implementation examples
-- [Troubleshooting](17-troubleshooting.md) - Common issues and solutions
+1. **[Introduction](01-introduction.md)** - Overview of digitalSTROM and the vDC API
+2. **[Quick Start Guide](02-quickstart.md)** - Get up and running quickly with working examples
+3. **[Core Concepts](03-core-concepts.md)** - Understanding digitalSTROM basics (zones, groups, scenes)
+4. **[vDC Overview](04-vdc-overview.md)** - Virtual Device Connectors explained in detail
+5. **[Session Management](05-session-management.md)** - Managing vDC connections and lifecycle
+6. **[Protocol Buffers Reference](06-protobuf-reference.md)** - Message format specification
+7. **[Properties System](07-properties.md)** - Named properties and how to use them
+8. **[Error Handling](08-error-handling.md)** - Error codes and recovery strategies
+9. **[Glossary](09-glossary.md)** - Complete terminology reference
+10. **[Troubleshooting](10-troubleshooting.md)** - Common issues and debugging guide
 
 ## About digitalSTROM
 
@@ -56,9 +42,11 @@ This documentation is based on:
 
 **Ready to implement?** Go to [Quick Start Guide](02-quickstart.md)
 
-**Need API details?** See [API Messages](07-api-messages.md)
+**Need API details?** See [Protocol Buffers Reference](06-protobuf-reference.md) and [Properties System](07-properties.md)
 
-**Looking for specific terms?** Check the [Glossary](15-glossary.md)
+**Looking for specific terms?** Check the [Glossary](09-glossary.md)
+
+**Having issues?** See [Troubleshooting](10-troubleshooting.md)
 
 ## Important Notes
 

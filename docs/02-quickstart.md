@@ -270,7 +270,7 @@ def get_device_properties(self, device):
     }
 ```
 
-See [Properties System](08-properties.md) for complete property reference.
+See [Properties System](07-properties.md) for complete property reference.
 
 ## Step 8: Handle Notifications
 
@@ -358,8 +358,8 @@ print(response)
 Now that you have a basic vDC running:
 
 1. **Add Device Functionality**: Implement scene calls, dimming, etc.
-2. **Implement More Properties**: See [Properties System](08-properties.md)
-3. **Handle Error Cases**: See [Error Handling](10-error-handling.md)
+2. **Implement More Properties**: See [Properties System](07-properties.md)
+3. **Handle Error Cases**: See [Error Handling](08-error-handling.md)
 4. **Add Multiple Devices**: Scale your vDC to host multiple devices
 5. **Implement Push Notifications**: Send state changes proactively
 
@@ -368,8 +368,8 @@ Now that you have a basic vDC running:
 🔍 **MISSING**: Links to example projects using libdsvdc and vdcd
 
 For complete implementation examples, see:
-- [Examples](16-examples.md) - Complete code samples
-- [Device Integration](12-device-integration.md) - Detailed implementation guide
+- [Quick Start Guide](02-quickstart.md) - Complete code samples
+- [Quick Start Guide](02-quickstart.md) - Detailed implementation guide
 
 ## Troubleshooting
 
@@ -379,7 +379,7 @@ If things aren't working:
 2. **Check Logs**: Look for connection attempts in your vDC logs
 3. **Verify Network**: Ensure vdSM can reach your vDC host
 4. **Test Messages**: Use the manual test client above
-5. **See**: [Troubleshooting](17-troubleshooting.md) for more help
+5. **See**: [Troubleshooting](10-troubleshooting.md) for more help
 
 ---
 

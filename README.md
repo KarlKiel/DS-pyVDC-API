@@ -16,27 +16,24 @@ The documentation has been completely rewritten to be:
 
 - **New to digitalSTROM?** → [Introduction](docs/01-introduction.md)
 - **Ready to implement?** → [Quick Start Guide](docs/02-quickstart.md)
-- **Need API reference?** → [API Messages](docs/07-api-messages.md) | [Properties](docs/08-properties.md)
-- **Looking for terms?** → [Glossary](docs/15-glossary.md)
+- **Need API reference?** → [Protocol Buffers](docs/06-protobuf-reference.md) | [Properties](docs/07-properties.md)
+- **Looking for terms?** → [Glossary](docs/09-glossary.md)
+- **Having issues?** → [Troubleshooting](docs/10-troubleshooting.md)
 
 ### What's Inside
 
-The `/docs` directory contains:
+The `/docs` directory contains 10 documents in a logical learning progression:
 
-1. **Getting Started**
-   - [Introduction](docs/01-introduction.md) - Overview of digitalSTROM and vDC
-   - [Quick Start Guide](docs/02-quickstart.md) - Build your first vDC integration
-   - [Core Concepts](docs/03-core-concepts.md) - Fundamental digitalSTROM concepts
-
-2. **Architecture**
-   - [vDC Overview](docs/05-vdc-overview.md) - Virtual Device Connectors explained
-
-3. **API Reference**
-   - [Protocol Buffers Reference](docs/09-protobuf-reference.md) - Message formats
-   - [Error Handling](docs/10-error-handling.md) - Error codes and recovery
-
-4. **Reference**
-   - [Glossary](docs/15-glossary.md) - Complete terminology reference
+1. **[Introduction](docs/01-introduction.md)** - Overview of digitalSTROM and vDC
+2. **[Quick Start Guide](docs/02-quickstart.md)** - Build your first vDC integration
+3. **[Core Concepts](docs/03-core-concepts.md)** - Fundamental concepts (zones, groups, scenes)
+4. **[vDC Overview](docs/04-vdc-overview.md)** - Virtual Device Connectors explained
+5. **[Session Management](docs/05-session-management.md)** - Connection lifecycle
+6. **[Protocol Buffers Reference](docs/06-protobuf-reference.md)** - Message formats
+7. **[Properties System](docs/07-properties.md)** - Named properties reference
+8. **[Error Handling](docs/08-error-handling.md)** - Error codes and recovery
+9. **[Glossary](docs/09-glossary.md)** - Complete terminology reference
+10. **[Troubleshooting](docs/10-troubleshooting.md)** - Debugging guide
 
 ### Original Documentation
 

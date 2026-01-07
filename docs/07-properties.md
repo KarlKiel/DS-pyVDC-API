@@ -426,12 +426,12 @@ if property_name == "dSUID":
 
 ## What's Next?
 
-- **[API Messages](07-api-messages.md)** - Using properties in messages
-- **[Protocol Buffers](09-protobuf-reference.md)** - PropertyElement structure
-- **[Device Integration](12-device-integration.md)** - Implementing device properties
+- **[Protocol Buffers Reference](06-protobuf-reference.md)** - Using properties in messages
+- **[Protocol Buffers](06-protobuf-reference.md)** - PropertyElement structure
+- **[Quick Start Guide](02-quickstart.md)** - Implementing device properties
 
 ---
 
 **Related:**
 - [Core Concepts](03-core-concepts.md) - Understanding device model
-- [Error Handling](10-error-handling.md) - Property access errors
+- [Error Handling](08-error-handling.md) - Property access errors

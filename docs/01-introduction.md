@@ -202,8 +202,8 @@ To work with vDC API, you should understand:
 
 - **[Quick Start Guide](02-quickstart.md)** - Get started with a simple example
 - **[Core Concepts](03-core-concepts.md)** - Deep dive into digitalSTROM fundamentals
-- **[vDC Overview](05-vdc-overview.md)** - Detailed vDC architecture
+- **[vDC Overview](04-vdc-overview.md)** - Detailed vDC architecture
 
 ---
 
-**Need Help?** Check the [Glossary](15-glossary.md) for term definitions or [Troubleshooting](17-troubleshooting.md) for common issues.
+**Need Help?** Check the [Glossary](09-glossary.md) for term definitions or [Troubleshooting](10-troubleshooting.md) for common issues.

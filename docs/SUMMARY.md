@@ -18,26 +18,23 @@ A complete restructuring and rewrite of the vDC API documentation from multiple 
 
 ## Documentation Created
 
-### 11 Core Documents (~150,000 words)
+### 10 Core Documents (~150,000 words)
 
-1. **[README.md](README.md)** (3,899 characters)
-   - Main documentation index
-   - Navigation guide
-   - Document structure overview
+The documentation is now organized in a logical learning progression with consecutive numbering:
 
-2. **[01-introduction.md](01-introduction.md)** (7,607 characters)
+1. **[01-introduction.md](01-introduction.md)** (7,607 characters)
    - What is digitalSTROM and vDC
    - System components
    - Integration types
    - Development approach
 
-3. **[02-quickstart.md](02-quickstart.md)** (11,373 characters)
+2. **[02-quickstart.md](02-quickstart.md)** (11,373 characters)
    - Step-by-step implementation guide
    - Working code examples
    - Common pitfalls
    - Testing procedures
 
-4. **[03-core-concepts.md](03-core-concepts.md)** (10,202 characters)
+3. **[03-core-concepts.md](03-core-concepts.md)** (10,202 characters)
    - System architecture
    - Data model (zones, groups, devices)
    - Application groups and colors
@@ -45,7 +42,7 @@ A complete restructuring and rewrite of the vDC API documentation from multiple 
    - Unique identifiers (dSUID, dSID, etc.)
    - Events and information flow
 
-5. **[05-vdc-overview.md](05-vdc-overview.md)** (11,937 characters)
+4. **[04-vdc-overview.md](04-vdc-overview.md)** (11,937 characters)
    - vDC detailed explanation
    - Three integration types
    - vDC architecture
@@ -54,31 +51,7 @@ A complete restructuring and rewrite of the vDC API documentation from multiple 
    - Development options
    - Best practices
 
-6. **[08-properties.md](08-properties.md)** (11,732 characters)
-   - Property system fundamentals
-   - Common properties reference
-   - Device-specific properties
-   - Property access (read/write)
-   - Push notifications
-   - Best practices
-
-7. **[09-protobuf-reference.md](09-protobuf-reference.md)** (16,520 characters)
-   - Protocol Buffers basics
-   - Message envelope structure
-   - All message types documented
-   - Complete message definitions
-   - Message flow examples
-   - Best practices
-
-8. **[10-error-handling.md](10-error-handling.md)** (12,652 characters)
-   - GenericResponse structure
-   - All 13 error codes explained
-   - 4 error types with recovery strategies
-   - Error response flow
-   - Best practices
-   - Common scenarios
-
-9. **[11-session-management.md](11-session-management.md)** (14,121 characters)
+5. **[05-session-management.md](05-session-management.md)** (14,121 characters)
    - Session lifecycle
    - Initialization sequence
    - Session operation
@@ -87,17 +60,45 @@ A complete restructuring and rewrite of the vDC API documentation from multiple 
    - Best practices
    - Advanced topics
 
-10. **[15-glossary.md](15-glossary.md)** (9,707 characters)
-    - Complete A-Z terminology
-    - Component descriptions
-    - Abbreviations
-    - Color group reference
-    - Quick reference tables
+6. **[06-protobuf-reference.md](06-protobuf-reference.md)** (16,520 characters)
+   - Protocol Buffers basics
+   - Message envelope structure
+   - All message types documented
+   - Complete message definitions
+   - Message flow examples
+   - Best practices
 
-11. **[17-troubleshooting.md](17-troubleshooting.md)** (13,901 characters)
+7. **[07-properties.md](07-properties.md)** (11,732 characters)
+   - Property system fundamentals
+   - Common properties reference
+   - Device-specific properties
+   - Property access (read/write)
+   - Push notifications
+   - Best practices
+
+8. **[08-error-handling.md](08-error-handling.md)** (12,652 characters)
+   - GenericResponse structure
+   - All 13 error codes explained
+   - 4 error types with recovery strategies
+   - Error response flow
+   - Best practices
+   - Common scenarios
+
+9. **[09-glossary.md](09-glossary.md)** (9,707 characters)
+   - Complete A-Z terminology
+   - Component descriptions
+   - Abbreviations
+   - Color group reference
+   - Quick reference tables
+
+10. **[10-troubleshooting.md](10-troubleshooting.md)** (13,901 characters)
     - Connection issues
     - Protocol issues  
     - Property issues
+    - Device issues
+    - Performance issues
+    - Debugging tools
+    - Test utilities
     - Device issues
     - Performance issues
     - Debugging tools
@@ -154,24 +155,24 @@ Examples:
 - Complete list of generic request method names
 - Some advanced property specifications
 
-## Files Not Created (Out of Scope)
+## Files Not Created (Covered in Existing Documentation)
 
-Based on the documentation plan, these remain optional/future work:
+The original plan included additional documents that are now covered within the existing 10 documents:
 
-1. **04-architecture.md** - Detailed system architecture (covered in introduction/core concepts)
-2. **06-protocol.md** - Communication protocol details (covered in protobuf reference)
-3. **07-api-messages.md** - Detailed API messages (covered in protobuf reference)
-4. **12-device-integration.md** - Detailed integration guide (covered in quickstart + overview)
-5. **13-scenes.md** - Detailed scene handling (covered in core concepts)
-6. **14-discovery.md** - Discovery details (covered in vdc-overview + quickstart)
-7. **16-examples.md** - Additional examples (working examples in quickstart)
+1. **System Architecture** - Covered in [Introduction](01-introduction.md) and [Core Concepts](03-core-concepts.md)
+2. **Communication Protocol** - Covered in [Protocol Buffers Reference](06-protobuf-reference.md)
+3. **API Messages (detailed)** - Covered in [Protocol Buffers Reference](06-protobuf-reference.md)
+4. **Device Integration** - Covered in [Quick Start Guide](02-quickstart.md) and [vDC Overview](04-vdc-overview.md)
+5. **Scene Handling** - Covered in [Core Concepts](03-core-concepts.md)
+6. **Discovery and Announcement** - Covered in [vDC Overview](04-vdc-overview.md) and [Quick Start Guide](02-quickstart.md)
+7. **Examples** - Working examples included in [Quick Start Guide](02-quickstart.md)
 
-**Rationale:** The 11 created documents comprehensively cover all essential information. The "missing" documents would largely duplicate content already present in the existing docs. They can be added later if more specific deep-dives are needed.
+**Rationale:** The 10 created documents comprehensively cover all essential information in a logical learning progression. The documentation now has consecutive numbering (01-10) making it clear and easy to follow without gaps.
 
 ## Statistics
 
 - **Source documents:** 5 files (PDFs + proto)
-- **Documentation created:** 11 comprehensive markdown files
+- **Documentation created:** 10 comprehensive markdown files (consecutively numbered 01-10)
 - **Total documentation:** ~150,000 words
 - **Code examples:** 50+ snippets
 - **Diagrams:** 20+ ASCII diagrams
@@ -184,21 +185,21 @@ Based on the documentation plan, these remain optional/future work:
 1. Start with [Introduction](01-introduction.md)
 2. Follow [Quick Start Guide](02-quickstart.md)
 3. Read [Core Concepts](03-core-concepts.md)
-4. Reference [Glossary](15-glossary.md) as needed
+4. Reference [Glossary](09-glossary.md) as needed
 
 ### For Implementers
 1. Review [Quick Start](02-quickstart.md)
-2. Study [vDC Overview](05-vdc-overview.md)
-3. Reference [Protocol Buffers](09-protobuf-reference.md)
-4. Implement following [Session Management](11-session-management.md)
-5. Use [Properties](08-properties.md) for device capabilities
-6. Debug with [Troubleshooting](17-troubleshooting.md)
+2. Study [vDC Overview](04-vdc-overview.md)
+3. Reference [Protocol Buffers](06-protobuf-reference.md)
+4. Implement following [Session Management](05-session-management.md)
+5. Use [Properties](07-properties.md) for device capabilities
+6. Debug with [Troubleshooting](10-troubleshooting.md)
 
 ### For API Reference
-1. [Protocol Buffers Reference](09-protobuf-reference.md) - Message formats
-2. [Properties System](08-properties.md) - Property reference
-3. [Error Handling](10-error-handling.md) - Error codes
-4. [Glossary](15-glossary.md) - Terminology
+1. [Protocol Buffers Reference](06-protobuf-reference.md) - Message formats
+2. [Properties System](07-properties.md) - Property reference
+3. [Error Handling](08-error-handling.md) - Error codes
+4. [Glossary](09-glossary.md) - Terminology
 
 ## Maintenance Notes
 

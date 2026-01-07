@@ -550,13 +550,13 @@ if response.code == ERR_NOT_IMPLEMENTED:
 
 ## What's Next?
 
-- **[API Messages](07-api-messages.md)** - Complete message reference
-- **[Properties System](08-properties.md)** - Property-specific errors
-- **[Session Management](11-session-management.md)** - Connection error handling
-- **[Troubleshooting](17-troubleshooting.md)** - Debugging common issues
+- **[Protocol Buffers Reference](06-protobuf-reference.md)** - Complete message reference
+- **[Properties System](07-properties.md)** - Property-specific errors
+- **[Session Management](05-session-management.md)** - Connection error handling
+- **[Troubleshooting](10-troubleshooting.md)** - Debugging common issues
 
 ---
 
 **Related:**
-- [Protocol Buffers](09-protobuf-reference.md) - Message structure
+- [Protocol Buffers](06-protobuf-reference.md) - Message structure
 - [Quick Start](02-quickstart.md) - Basic error handling examples

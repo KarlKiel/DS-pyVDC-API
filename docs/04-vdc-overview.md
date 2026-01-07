@@ -418,10 +418,10 @@ Please contact digitalSTROM AG for:
 
 ## What's Next?
 
-- **[Communication Protocol](06-protocol.md)** - Detailed protocol specification
-- **[API Messages](07-api-messages.md)** - Complete message reference
-- **[Session Management](11-session-management.md)** - Implementing sessions
-- **[Device Integration](12-device-integration.md)** - Detailed integration guide
+- **[Protocol Buffers Reference](06-protobuf-reference.md)** - Detailed protocol specification
+- **[Protocol Buffers Reference](06-protobuf-reference.md)** - Complete message reference
+- **[Session Management](05-session-management.md)** - Implementing sessions
+- **[Quick Start Guide](02-quickstart.md)** - Detailed integration guide
 
 ---
 

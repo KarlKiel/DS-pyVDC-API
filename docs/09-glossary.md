@@ -279,4 +279,4 @@ Quick reference for application group colors:
 
 - **[Core Concepts](03-core-concepts.md)** - Fundamental concepts explained
 - **[Introduction](01-introduction.md)** - System overview
-- **[vDC Overview](05-vdc-overview.md)** - Virtual device connector details
+- **[vDC Overview](04-vdc-overview.md)** - Virtual device connector details

@@ -536,13 +536,13 @@ class Session:
 
 ## What's Next?
 
-- **[Device Integration](12-device-integration.md)** - Implementing device functionality
-- **[Discovery and Announcement](14-discovery.md)** - Service discovery details
-- **[Error Handling](10-error-handling.md)** - Handling errors in sessions
+- **[Quick Start Guide](02-quickstart.md)** - Implementing device functionality
+- **[vDC Overview](04-vdc-overview.md)** - Service discovery details
+- **[Error Handling](08-error-handling.md)** - Handling errors in sessions
 
 ---
 
 **Related:**
-- [Protocol Buffers](09-protobuf-reference.md) - Message formats
-- [API Messages](07-api-messages.md) - Detailed message reference
+- [Protocol Buffers](06-protobuf-reference.md) - Message formats
+- [Protocol Buffers Reference](06-protobuf-reference.md) - Detailed message reference
 - [Quick Start](02-quickstart.md) - Basic session implementation

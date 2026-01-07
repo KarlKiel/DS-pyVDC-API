@@ -673,6 +673,6 @@ If you're still stuck:
 ---
 
 **Related:**
-- [Error Handling](10-error-handling.md) - Understanding error codes
-- [Session Management](11-session-management.md) - Connection lifecycle
+- [Error Handling](08-error-handling.md) - Understanding error codes
+- [Session Management](05-session-management.md) - Connection lifecycle
 - [Quick Start](02-quickstart.md) - Basic implementation guide

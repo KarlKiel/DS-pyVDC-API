@@ -337,12 +337,12 @@ When implementing a vDC, remember:
 
 ## What's Next?
 
-- **[System Architecture](04-architecture.md)** - Detailed system architecture
-- **[vDC Overview](05-vdc-overview.md)** - How vDC fits into digitalSTROM
-- **[Scene Handling](13-scenes.md)** - Detailed scene implementation guide
+- **[vDC Overview](04-vdc-overview.md)** - Detailed system architecture
+- **[vDC Overview](04-vdc-overview.md)** - How vDC fits into digitalSTROM
+- **[Core Concepts](03-core-concepts.md)** - Detailed scene implementation guide
 
 ---
 
 **Related:**
-- [Glossary](15-glossary.md) - Complete terminology reference
-- [Properties System](08-properties.md) - How properties work
+- [Glossary](09-glossary.md) - Complete terminology reference
+- [Properties System](07-properties.md) - How properties work

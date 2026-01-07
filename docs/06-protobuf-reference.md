@@ -565,7 +565,7 @@ message GenericResponse {
 **Purpose:** Communicate operation results, especially errors
 
 **Fields:**
-- `code`: Error code (see [Error Handling](10-error-handling.md))
+- `code`: Error code (see [Error Handling](08-error-handling.md))
 - `description`: Human-readable description
 
 **Additional fields** (not in proto, but used in practice):
@@ -594,7 +594,7 @@ enum ResultCode {
 }
 ```
 
-See [Error Handling](10-error-handling.md) for detailed descriptions.
+See [Error Handling](08-error-handling.md) for detailed descriptions.
 
 ---
 
@@ -733,13 +733,13 @@ if response.type == Type.GENERIC_RESPONSE:
 
 ## What's Next?
 
-- **[API Messages](07-api-messages.md)** - Detailed message usage guide
-- **[Properties System](08-properties.md)** - Complete property reference
-- **[Session Management](11-session-management.md)** - Implementing sessions
-- **[Examples](16-examples.md)** - Complete code examples
+- **[Protocol Buffers Reference](06-protobuf-reference.md)** - Detailed message usage guide
+- **[Properties System](07-properties.md)** - Complete property reference
+- **[Session Management](05-session-management.md)** - Implementing sessions
+- **[Quick Start Guide](02-quickstart.md)** - Complete code examples
 
 ---
 
 **Related:**
-- [Error Handling](10-error-handling.md) - Error codes and recovery
+- [Error Handling](08-error-handling.md) - Error codes and recovery
 - [Quick Start](02-quickstart.md) - Basic implementation
