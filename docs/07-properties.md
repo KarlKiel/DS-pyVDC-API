@@ -175,7 +175,7 @@ vdSD (device)
 │  ├─ max
 │  └─ resolution
 ├─ channelSettings[]
-│  └─ (no properties currently defined)
+│  └─ (currently no properties defined by API specification)
 ├─ channelStates[]
 │  ├─ value
 │  └─ age
