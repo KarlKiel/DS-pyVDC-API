@@ -7,18 +7,26 @@ so that digitalSTROM servers can automatically discover it.
 
 Requirements:
     - Avahi daemon running (Linux/macOS)
-    - python-zeroconf package: pip install zeroconf
+    - zeroconf package: pip install ds-vdc-api[discovery]
 """
 
 import logging
 import sys
-import time
 
+# Check for optional zeroconf dependency
 try:
     from zeroconf import ServiceInfo, Zeroconf
+    ZEROCONF_AVAILABLE = True
 except ImportError:
+    ZEROCONF_AVAILABLE = False
+    print("=" * 60)
     print("ERROR: zeroconf package not installed")
-    print("Install it with: pip install zeroconf")
+    print("This example requires the 'discovery' extra.")
+    print("\nInstall it with:")
+    print("  pip install ds-vdc-api[discovery]")
+    print("or:")
+    print("  pip install zeroconf")
+    print("=" * 60)
     sys.exit(1)
 
 from ds_vdc_api import VdcHost, VdcDevice

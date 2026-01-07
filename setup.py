@@ -41,14 +41,11 @@ setup(
             "pytest>=7.0.0",
             "pytest-cov>=3.0.0",
         ],
+        "discovery": [
+            "zeroconf>=0.38.0",
+        ],
     },
     package_data={
         "ds_vdc_api": ["*.proto"],
-    },
-    entry_points={
-        "console_scripts": [
-            "vdc-example-simple=examples.simple_vdc_host:main",
-            "vdc-example-custom=examples.custom_devices:main",
-        ],
     },
 )
