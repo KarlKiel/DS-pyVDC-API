@@ -479,7 +479,6 @@ This section provides an overview of all device-specific properties for virtual 
 | `devicePropertyDescriptions` | array | r | Custom property descriptions |
 | `deviceProperties` | array | r/w | Custom property values |
 | `deviceEventDescriptions` | array | r | Device event descriptions |
-| `scenes` | array | r/w | Scene configurations |
 | `controlValues` | object | r/w | Named control values |
 
 ## 5. Inputs
