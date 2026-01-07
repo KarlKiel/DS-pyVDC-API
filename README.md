@@ -1,12 +1,39 @@
 # DS-pyVDC-API
 
-## digitalSTROM Virtual Device Connector (vDC) API Documentation
+## digitalSTROM Virtual Device Connector (vDC) API Documentation & Python Implementation
 
-This repository contains comprehensive, restructured documentation for the digitalSTROM vDC API.
+This repository contains:
+- **Complete Python implementation** of the digitalSTROM vDC API
+- **Comprehensive documentation** for the vDC protocol
 
-### 📚 [Read the Documentation](docs/README.md)
+### 🐍 [Python Implementation](README_IMPLEMENTATION.md) | 📚 [Read the Documentation](docs/README.md)
 
-The documentation has been completely rewritten to be:
+## Python Implementation
+
+This repository now includes a complete Python implementation of the vDC API!
+
+**Key Features:**
+- ✅ Full vDC API v3 support with Protocol Buffers
+- ✅ Easy-to-use `VdcHost` and `VdcDevice` classes
+- ✅ Automatic session management and device announcements
+- ✅ Extensible device classes for custom implementations
+- ✅ Complete examples and documentation
+
+**Quick Start:**
+```python
+from ds_vdc_api import VdcHost, VdcDevice
+
+host = VdcHost(dsuid="...", vdc_dsuid="...", port=8444)
+device = VdcDevice(dsuid="...", name="My Light", device_class="Light")
+host.add_device(device)
+host.start()
+```
+
+👉 **[Full Implementation Guide](README_IMPLEMENTATION.md)**
+
+## vDC API Documentation
+
+The `/docs` directory contains comprehensive vDC protocol documentation rewritten to be:
 - **Easier to understand** - Clear explanations for developers new to digitalSTROM
 - **Better organized** - Structured by topic and use case
 - **More complete** - Covers all aspects of the vDC API
