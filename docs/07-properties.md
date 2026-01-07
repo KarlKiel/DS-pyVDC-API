@@ -236,7 +236,7 @@ vdSD (device)
    └─ {controlValueName}
 ```
 
-## 1. Common Properties for vDC Entities
+## 1. Common Properties for vDC-Level Entities
 
 These properties are supported by all addressable entities at the vDC level (vDCs, vDC hosts):
 
@@ -349,11 +349,9 @@ vDC entities (Virtual Device Connectors) have additional properties beyond the c
 
 ## 3. Common Properties for vdSD Entities
 
-These properties are supported by all virtual digitalSTROM devices (vdSD):
+These properties are supported by all virtual digitalSTROM devices (vdSD). vdSD entities inherit the common properties structure with `type` = "vdSD".
 
 ### Identification Properties
-
-Same as section 1, but with `type` = "vdSD":
 
 | Property | Type | Access | Description |
 |----------|------|--------|-------------|
