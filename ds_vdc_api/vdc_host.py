@@ -5,6 +5,7 @@ VDC Host implementation - manages vDC sessions and devices
 import socket
 import logging
 import threading
+import time
 from typing import Dict, Optional, List, Callable
 from .genericVDC_pb2 import Message, Type, ResultCode, GenericResponse
 from .message_handler import MessageHandler
@@ -238,7 +239,6 @@ class VdcHost:
     
     def _announce_all(self) -> None:
         """Announce vDC and all devices after session is established."""
-        import time
         time.sleep(0.1)  # Small delay to ensure hello response is sent first
         
         if not self.client_socket or not self.session_active:

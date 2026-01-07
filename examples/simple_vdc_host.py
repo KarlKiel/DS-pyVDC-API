@@ -5,7 +5,6 @@ Simple vDC host example with virtual light devices
 
 import logging
 import sys
-import time
 from ds_vdc_api import VdcHost, VdcDevice
 
 # Configure logging

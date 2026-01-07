@@ -4,7 +4,6 @@ Custom device example - demonstrates creating a custom device class
 """
 
 import logging
-import time
 from ds_vdc_api import VdcHost, VdcDevice
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')

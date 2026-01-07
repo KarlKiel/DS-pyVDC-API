@@ -7,6 +7,7 @@ import socket
 import struct
 import logging
 import sys
+import time
 from ds_vdc_api.genericVDC_pb2 import Message, Type
 from ds_vdc_api.message_handler import MessageHandler
 
@@ -191,7 +192,6 @@ def main():
             client.call_scene([device_dsuid], 5)
             
             # Wait a bit
-            import time
             time.sleep(1)
             
             # Call scene 0 (Off)
