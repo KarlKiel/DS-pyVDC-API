@@ -445,7 +445,7 @@ Scenes store sets of values to apply to device outputs. Each scene contains valu
 
 #### Scene Value
 
-Each scene channel value contains. Located in `scenes[i].channels[channelTypeId]`:
+Each scene channel value contains the following properties. Located in `scenes[i].channels[channelTypeId]`:
 
 | Property | Type | Access | Description |
 |----------|------|--------|-------------|
